@@ -14,7 +14,7 @@ class Series
     spliting.map! {|s| s.to_i}
     
     loop do 
-      break if spliting.take(num).size < num
+      break if spliting.size < num
       result.push(spliting.take(num))
       spliting.shift
       break if spliting.size == 0 
@@ -23,3 +23,4 @@ class Series
   end
 
 end
+
