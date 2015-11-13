@@ -12,13 +12,8 @@ class Series
     result = []
     spliting = @series.split('')
     spliting.map! {|s| s.to_i}
-    
-    loop do 
-      break if spliting.size < num
-      result.push(spliting.take(num))
-      spliting.shift
-      break if spliting.size == 0 
-    end
+    spliting.each_cons(num) {|arr| result << arr}
+
     result
   end
 
