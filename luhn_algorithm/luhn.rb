@@ -1,13 +1,14 @@
 require 'pry'
 
 class Luhn 
+  attr_accessor :num
+
   def initialize(num)
     @num = num
   end
 
   def addends
-    individual = @num.to_s.split('')
-    number = individual.map(&:to_i)
+    number = @num.to_s.split('').map(&:to_i)
 
     result = []
 
@@ -42,11 +43,15 @@ class Luhn
   end
 
   def self.create(num)
-    if num.valid? 
-      self.addends
-    end
-  end
+    series = Luhn.new(num)
+    num_array = %w(1 2 3 4 5 6 7 8 9 0)
 
+    num_array.each do |i|
+      series.num = num.to_s << i
+      break if series.valid?
+    end
+    series.num.to_i
+  end
   
   private
 
@@ -61,5 +66,6 @@ class Luhn
 end
 
 
-# 1. find the most right num [-1]
-# 2. 
+
+
+

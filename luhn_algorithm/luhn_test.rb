@@ -39,13 +39,13 @@ class LuhnTest < Minitest::Test
   end
 
   def test_create_other_valid_number
-    skip
+    
     number = Luhn.create(873_956)
     assert_equal 8_739_567, number
   end
 
   def test_create_yet_another_valid_number
-    skip
+
     number = Luhn.create(837_263_756)
     assert_equal 8_372_637_564, number
   end
