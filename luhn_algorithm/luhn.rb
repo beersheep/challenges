@@ -10,8 +10,6 @@ class Luhn
   def addends
     number = @num.to_s.split('').map(&:to_i)
 
-    result = []
-
     number.each_with_index do |value, index|
       if number.size.odd?
         if index.odd?
@@ -63,6 +61,7 @@ class Luhn
       num
     end
   end
+
 end
 
 
