@@ -38,9 +38,7 @@ class Luhn
     number = self.addends
     sum = 0 
 
-    number.each do |num|
-      sum += num
-    end
+    number.each { |num| sum += num }
 
     sum
   end
