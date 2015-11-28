@@ -9,20 +9,29 @@ class Luhn
 
   def addends
     number = @num.to_s.split('').map(&:to_i)
+    index = -2
 
-    number.each_with_index do |value, index|
-      if number.size.odd?
-        if index.odd?
-          sum = value * 2 
-          number[index] = check_number_over_10(sum)
-        end
-      else 
-        if index.even?
-          sum = value * 2
-          number[index] = check_number_over_10(sum) 
-        end
-      end
-    end
+    begin 
+      sum = number[index] * 2 
+      number[index] = check_number_over_10(sum)
+      index -= 2 
+    end until index.abs > number.size
+
+    number
+
+    # number.each_with_index do |value, index|
+    #   if number.size.odd?
+    #     if index.odd?
+    #       sum = value * 2 
+    #       number[index] = check_number_over_10(sum)
+    #     end
+    #   else 
+    #     if index.even?
+    #       sum = value * 2
+    #       number[index] = check_number_over_10(sum) 
+    #     end
+    #   end
+    # end
   end
 
   def checksum
@@ -63,7 +72,6 @@ class Luhn
   end
 
 end
-
 
 
 
