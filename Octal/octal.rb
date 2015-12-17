@@ -9,21 +9,13 @@ class Octal
 
     return 0 if !@octal.match(/^[0-7]+$/)
 
-    number_array = @octal.split('').reverse
-    number_array.map!(&:to_i)
+    number_array = @octal.split('').reverse.map!(&:to_i)
 
     number_array.collect!.with_index do |num, index|
       num * 8 ** index
     end
 
-
-    sum = 0 
-
-    number_array.each do |num|
-      sum += num
-    end
-
-    sum
+    number_array.reduce(:+)
     
   end
 end
